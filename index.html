@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <div id="main-container">
+      <div class="contendeor-opciones">
+        <h2>SODOKU</h2>
+        <h3>by Orlan Castro</h3>
+
+        <b>Dificultad:</b><br />
+        <div class="opciones">
+          <label class="radio">
+            <input type="radio" name="dificultad" value="facil" />
+            <span>Fácil</span>
+          </label>
+          <label class="radio">
+            <input type="radio" name="dificultad" value="medio" />
+            <span>Medio</span>
+          </label>
+          <label class="radio">
+            <input type="radio" name="dificultad" value="dificil" />
+            <span>Difícil</span>
+          </label>
+
+        </div>
+        <label><input type="checkbox" id="check_tiempo" value="allowtime" /> Mostrar tiempo</label>
+        <button type="button">Nuevo juego</button>
+      </div>
+      <div class="juego" tabindex="0">
+        <div class="tiempo">
+          <h5>Tiempo transcurrido</h5>
+          <span id="tiempoTranscurrido">00:00</span>
+        </div>
+        <table>
+          <tbody></tbody>
+        </table>
+        <button type="button">Validar</button>
+      </div>
+    </div>
+    <script src="./js/random-js.umd.min.js"></script>
+    <script src="./js/script.js"></script>
+  </body>
+</html>

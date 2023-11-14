@@ -1,0 +1,171 @@
+
+:root {
+  --border-color-table: #d6d6d6;
+  --background-color: rgb(39, 39, 39);
+  --hover-color: #66ff40;
+  --selected-color: #8082ff;
+  --text-white: #ffffff;
+  --hover-bg-color: rgba(255, 255, 255, 0.25);
+  --waiting-color: rgba(241, 203, 120, 0.25);
+  --marked-color: #acacac4f;
+}
+
+html,
+body {
+  background-color: var(--background-color);
+  height: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text-white);
+}
+
+#main-container {
+  width: auto;
+  height: 85%;
+  text-align: center;
+  display: flex;
+}
+
+.juego {
+  width: 500px;
+  height: 500px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.juego:focus-visible {
+  outline: none;
+}
+
+.juego table {
+  border-collapse: collapse;
+  border: 1px solid var(--border-color-table);
+  font-size: 28px;
+  font-weight: 500;
+}
+
+.juego table tbody {
+  border-radius: 10px;
+}
+
+.juego table td,
+.juego table th {
+  border: 1px solid var(--border-color-table);
+  width: 40px;
+  height: 40px;
+  line-height: 0;
+  position: relative;
+
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.juego table tbody .unselected-box {
+  transition: all 0.15s ease-in;
+}
+
+.juego table tbody .waiting-response {
+  animation: waiting-response 1s linear infinite alternate;
+}
+
+@keyframes waiting-response {
+  from {
+    background-color: none;
+  }
+
+  to {
+    background-color: var(--waiting-color);
+  }
+}
+
+.juego table tbody .unselected-box:hover {
+  background-color: var(--hover-bg-color);
+}
+
+.juego table tbody td.marked::before {
+  content: '';
+  position: absolute;
+  background-color: var(--marked-color);
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  border-radius: 50%;
+
+}
+
+.juego .tiempo h5 {
+  margin-bottom: 10px;
+}
+
+.contendeor-opciones {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.opciones .radio {
+  display: block;
+  cursor: pointer;
+  user-select: none;
+  text-align: left;
+
+}
+
+.opciones .radio + .radio {
+  margin-top: 12px;
+}
+
+.opciones .radio input {
+  display: none;
+}
+
+.opciones .radio input + span {
+  display: inline-block;
+  position: relative;
+  padding-left: 30px;
+}
+
+.opciones .radio input + span::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  border-radius: 50%;
+  margin-right: 5px;
+  width: 16px;
+  height: 16px;
+  border: 1px solid #ccc;
+  background: #fff;
+}
+
+.opciones .radio input + span::after {
+  content: '';
+  display: block;
+  width: 10px;
+  height: 10px;
+  background: #222;
+  position: absolute;
+  border-radius: 50%;
+  top: 4px;
+  left: 4px;
+  opacity: 0;
+  transform: scale(0,0);
+  transition: all .2s cubic-bezier(0.64, 0.57, 0.67, 1.53);
+}
+
+.opciones .radio input:checked + span::after {
+  opacity: 1;
+  transform: scale(1,1);
+}
